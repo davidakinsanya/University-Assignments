@@ -2,6 +2,10 @@ package com.indieproject.utils
 
 class MonitorUtils {
   
+  private fun setMonitorNumber(): Int {
+    return 0
+  }
+  
   private fun setHeartRate(): Int {
     return 0
   }
