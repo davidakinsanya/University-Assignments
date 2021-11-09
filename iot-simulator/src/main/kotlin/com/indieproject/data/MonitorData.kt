@@ -1,30 +1,35 @@
 package com.indieproject.data
 
 data class MonitorData(
+                       private val MonitorNumber: Int,
                        private val HeartRate: Int,
                        private val BloodPressure: String,
                        private val OxygenSaturation: Int,
-                       private val Respiration: Int) {
-  
-  private val heartRate = this.HeartRate
-  private val bloodPressure = this.BloodPressure
-  private val oxygenSaturation = this.OxygenSaturation
-  private val respiration = this.Respiration
+                       private val Respiration: Int)
+
+/*
+{
   
   fun getHeartRate(): Int {
-    return heartRate
+    return HeartRate
   }
   
   fun getBloodPressure(): String {
-    return bloodPressure
+    return BloodPressure
   }
   
   fun getOxygenSaturation(): Int {
-    return oxygenSaturation
+    return OxygenSaturation
   }
   
   fun getRespiration(): Int {
-    return respiration
+    return Respiration
   }
   
+  fun getMonitorNumber(): Int {
+  return MonitorNumber
+  }
 }
+
+*/
+
