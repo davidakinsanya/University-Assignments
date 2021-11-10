@@ -11,6 +11,5 @@ fun main() {
         configureSecurity()
         configureRouting()
         configureSerialization()
-        monitorRoutes()
     }.start(wait = true)
 }
