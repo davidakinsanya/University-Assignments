@@ -12,7 +12,6 @@ fun Application.monitorRoutes()  {
       try {
         val utils = MonitorUtils()
         call.respond(utils.generateMonitorObject())
-        call.respondText("Done!")
       } catch(B : BaseApplicationResponse.ResponseAlreadySentException) {}
     }
   }
