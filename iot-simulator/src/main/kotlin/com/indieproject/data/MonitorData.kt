@@ -35,11 +35,11 @@ data class MonitorData(
   
   override fun toString(): String {
     return "Monitor #${this.getMonitorNumber()} reads: " +
-            "\nPulse: ${this.getPulse()} Beats Per Minute" +
+            "\n\nPulse: ${this.getPulse()} Beats Per Minute" +
             "\nBlood Pressure: ${this.getBloodPressure()[0]}/${this.getBloodPressure()[1]}mmHg" +
             "\nOxygen Saturation: ${this.getOxygenSaturation()}%" +
-            "\n Resipration: ${this.getRespiration()} Breaths Per Minute" +
-            "\n Temperature: ${this.getTemperature()}°C"
+            "\nResipration: ${this.getRespiration()} Breaths Per Minute" +
+            "\nTemperature: ${this.getTemperature()}°C"
   }
   
 }
