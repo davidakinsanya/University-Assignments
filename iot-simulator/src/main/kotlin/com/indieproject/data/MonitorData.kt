@@ -28,7 +28,7 @@ data class MonitorData(
     return OxygenSaturation
   }
   
-  fun getRespiration(): Int {
+  private fun getRespiration(): Int {
     return Respiration
   }
   
