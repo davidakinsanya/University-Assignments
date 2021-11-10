@@ -1,12 +1,14 @@
 package com.indieproject.utils
 
+import kotlin.random.Random
+
 class MonitorUtils {
   
   private fun setMonitorNumber(): Int {
-    return 0
+    return Random.nextInt(1, 500)
   }
   
-  private fun setHeartRate(): Int {
+  private fun setPulse(): Int {
     return 0
   }
   
