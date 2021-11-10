@@ -4,13 +4,16 @@ import com.indieproject.utils.MonitorUtils
 import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.routing.*
+import io.ktor.server.engine.*
 
-fun Application.monitorRoutes() {
+fun Application.monitorRoutes()  {
   routing {
     post("/monitor") {
-      val utils = MonitorUtils()
-      call.respond(utils.generateMonitorObject())
-      call.respondText("Done!")
+      try {
+        val utils = MonitorUtils()
+        call.respond(utils.generateMonitorObject())
+        call.respondText("Done!")
+      } catch(B : BaseApplicationResponse.ResponseAlreadySentException) {}
     }
   }
 }

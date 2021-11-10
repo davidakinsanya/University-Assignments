@@ -14,19 +14,19 @@ class MonitorUtils {
   }
   
   fun setBloodPressure(): Array<Int> {
-    return arrayOf(Random.nextInt(100,125), Random.nextInt(70,85)) // [90,60] - [120,80] normal
+    return arrayOf(Random.nextInt(99,120), Random.nextInt(75,90)) // [90,60] - [120,80] normal
   }
   
   fun setRespiration(): Int {
-    return Random.nextInt(12,25) // 12-25 normal
+    return Random.nextInt(12,20) // 10-20 normal
   }
   
   fun setOxygenSaturation(): Int {
-    return Random.nextInt(85, 100) // 90-100 normal
+    return Random.nextInt(85, 100)
   }
   
   fun setTemperature(): Double {
-    return Random.nextDouble(36.0, 37.5) // 36.1-37.2 normal
+    return Random.nextDouble(36.485, 37.901)
   }
   
   fun generateMonitorObject(): MonitorData {
