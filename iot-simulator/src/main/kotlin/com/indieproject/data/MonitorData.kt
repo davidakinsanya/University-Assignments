@@ -6,7 +6,7 @@ data class MonitorData(
                        private val BloodPressure: Array<Int>,
                        private val OxygenSaturation: Int,
                        private val Respiration: Int,
-                       private val Temperature: Float,
+                       private val Temperature: Double,
                        ) {
 
   fun getMonitorNumber(): Int {
@@ -29,7 +29,7 @@ data class MonitorData(
     return Respiration
   }
   
-  fun getTemperature(): Float {
+  fun getTemperature(): Double {
     return Temperature
   }
   
@@ -43,4 +43,3 @@ data class MonitorData(
   }
   
 }
-
