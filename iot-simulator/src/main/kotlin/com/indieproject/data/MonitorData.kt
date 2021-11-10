@@ -3,7 +3,7 @@ package com.indieproject.data
 data class MonitorData(
                        private val MonitorNumber: Int,
                        private val Pulse: Int,
-                       private val BloodPressure: String,
+                       private val BloodPressure: Array<Int>,
                        private val OxygenSaturation: Int,
                        private val Respiration: Int,
                        private val Temperature: Int,
@@ -19,7 +19,7 @@ data class MonitorData(
     return Pulse
   }
 
-  fun getBloodPressure(): String {
+  fun getBloodPressure(): Array<Int> {
     return BloodPressure
   }
   
