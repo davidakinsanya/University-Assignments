@@ -10,6 +10,7 @@ fun main() {
         configureSecurity()
         configureRouting()
         configureSerialization()
-        MonitorTesting().main()
+        
+        // MonitorTesting().main()
     }.start(wait = true)
 }
