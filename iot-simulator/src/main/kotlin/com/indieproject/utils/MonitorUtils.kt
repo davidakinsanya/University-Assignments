@@ -6,19 +6,19 @@ import kotlin.random.Random
 class MonitorUtils {
   
   fun setMonitorNumber(): Int {
-    return Random.nextInt(1, 500)
+    return Random.nextInt(1, 250)
   }
   
   fun setPulse(): Int {
-    return Random.nextInt(50,110) // 60-100 normaL
+    return Random.nextInt(70,100) // 60-100 normaL
   }
   
   fun setBloodPressure(): Array<Int> {
-    return arrayOf(Random.nextInt(85,125), Random.nextInt(55,85)) // [90,60] - [120,80] normal
+    return arrayOf(Random.nextInt(100,125), Random.nextInt(70,85)) // [90,60] - [120,80] normal
   }
   
   fun setRespiration(): Int {
-    return Random.nextInt(10,30) // 12-25 normal
+    return Random.nextInt(12,25) // 12-25 normal
   }
   
   fun setOxygenSaturation(): Int {
