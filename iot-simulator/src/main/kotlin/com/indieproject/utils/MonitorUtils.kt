@@ -1,5 +1,6 @@
 package com.indieproject.utils
 
+import com.indieproject.data.MonitorData
 import kotlin.random.Random
 
 class MonitorUtils {
@@ -26,5 +27,16 @@ class MonitorUtils {
   
   fun setTemperature(): Double {
     return Random.nextDouble(36.0, 37.5) // 36.1-37.2 normal
+  }
+  
+  fun generateMonitorObject(): MonitorData {
+    return MonitorData(
+      this.setMonitorNumber(),
+      this.setPulse(),
+      this.setBloodPressure(),
+      this.setOxygenSaturation(),
+      this.setRespiration(),
+      this.setTemperature()
+    )
   }
 }

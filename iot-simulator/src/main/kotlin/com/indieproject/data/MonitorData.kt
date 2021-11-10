@@ -1,5 +1,8 @@
 package com.indieproject.data
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class MonitorData(
                        private val MonitorNumber: Int,
                        private val Pulse: Int,
@@ -9,19 +12,19 @@ data class MonitorData(
                        private val Temperature: Double,
                        ) {
 
-  fun getMonitorNumber(): Int {
+  private fun getMonitorNumber(): Int {
   return MonitorNumber
   }
   
-  fun getPulse(): Int {
+  private fun getPulse(): Int {
     return Pulse
   }
 
-  fun getBloodPressure(): Array<Int> {
+  private fun getBloodPressure(): Array<Int> {
     return BloodPressure
   }
   
-  fun getOxygenSaturation(): Int {
+  private fun getOxygenSaturation(): Int {
     return OxygenSaturation
   }
   
@@ -29,7 +32,7 @@ data class MonitorData(
     return Respiration
   }
   
-  fun getTemperature(): Double {
+  private fun getTemperature(): Double {
     return Temperature
   }
   

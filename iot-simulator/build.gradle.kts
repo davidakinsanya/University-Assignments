@@ -20,6 +20,7 @@ repositories {
 
 dependencies {
     implementation("io.ktor:ktor-auth:$ktor_version")
+    implementation("io.ktor:ktor-client-serialization:$ktor_version")
     implementation("io.ktor:ktor-server-core:$ktor_version")
     implementation("io.ktor:ktor-gson:$ktor_version")
     implementation("io.ktor:ktor-server-netty:$ktor_version")
