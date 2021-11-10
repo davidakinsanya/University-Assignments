@@ -6,7 +6,7 @@ data class MonitorData(
                        private val BloodPressure: Array<Int>,
                        private val OxygenSaturation: Int,
                        private val Respiration: Int,
-                       private val Temperature: Int,
+                       private val Temperature: Float,
                        ) {
 
   fun getMonitorNumber(): Int {
@@ -29,17 +29,17 @@ data class MonitorData(
     return Respiration
   }
   
-  fun getTemperature(): Int {
+  fun getTemperature(): Float {
     return Temperature
   }
   
   override fun toString(): String {
     return "Monitor #${this.getMonitorNumber()} reads: " +
-            "\nPulse: ${this.getPulse()}" +
-            "\nBlood Pressure: ${this.getBloodPressure()[0]}/${this.getBloodPressure()[1]}" +
-            "\nOxygen Saturation: ${this.getOxygenSaturation()}" +
-            "\n Resipration: ${this.getRespiration()}" +
-            "\n Temperature: ${this.getTemperature()}"
+            "\nPulse: ${this.getPulse()} Beats Per Minute" +
+            "\nBlood Pressure: ${this.getBloodPressure()[0]}/${this.getBloodPressure()[1]}mmHg" +
+            "\nOxygen Saturation: ${this.getOxygenSaturation()}%" +
+            "\n Resipration: ${this.getRespiration()} Breaths Per Minute" +
+            "\n Temperature: ${this.getTemperature()}°C"
   }
   
 }

@@ -23,4 +23,8 @@ class MonitorUtils {
   private fun setOxygenSaturation(): Int {
     return Random.nextInt(85, 100) // 90-100 normal
   }
+  
+  private fun setTemperature(): Double {
+    return Random.nextDouble(36.0,38.0) // 36.1-37.2 normal
+  }
 }
