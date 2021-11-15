@@ -14,4 +14,10 @@ enum class Environment(private val identifier: Int, private val status: Status) 
   fun getStatus(): Status {
     return status
   }
+  
+  override fun toString(): String {
+    return "$this #${this.getIdentifier()} " +
+            "Condition reads as ${this.getStatus()} " +
+            "(${this.getStatus().getRate()}/10)"
+  }
 }
