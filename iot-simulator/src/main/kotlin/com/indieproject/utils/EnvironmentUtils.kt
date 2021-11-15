@@ -7,7 +7,7 @@ import kotlin.random.Random
 
 class EnvironmentUtils {
   fun setIdentifier(): Int {
-    return Random.nextInt(1, 109)
+    return Random.nextInt(900, 3000)
   }
   
    fun setStatus(): Status {
