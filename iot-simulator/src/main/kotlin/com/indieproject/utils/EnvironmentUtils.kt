@@ -1,6 +1,7 @@
 package com.indieproject.utils
 
 import com.indieproject.data.Environment
+import com.indieproject.data.EnvironmentData
 import com.indieproject.data.Status
 import kotlin.random.Random
 
@@ -13,7 +14,9 @@ class EnvironmentUtils {
     return Status.values().random()
   }
   
-  fun generateEnvironmentObject(): Environment {
-    return Environment.values().random()
+  fun generateEnvironmentObject(): EnvironmentData {
+    return EnvironmentData(Environment.values().random(),
+      EnvironmentUtils().setIdentifier(),
+      EnvironmentUtils().setStatus())
   }
 }
