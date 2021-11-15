@@ -5,15 +5,15 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class EnvironmentData(private val environment: Environment, private val identifier: Int, private val status: Status) {
   
-  fun getIdentifier(): Int {
+  private fun getIdentifier(): Int {
     return identifier
   }
   
-  fun getStatus(): Status {
+  private fun getStatus(): Status {
     return status
   }
   
-  fun getEnvironment(): Environment {
+  private fun getEnvironment(): Environment {
     return environment
   }
   
