@@ -12,7 +12,9 @@ import kotlinx.serialization.Serializable
  * @author David
  */
 @Serializable
-data class EnvironmentData(private val environment: Environment, private val identifier: Int, private val status: Status) {
+data class EnvironmentData(private val environment: Environment,
+                           private val identifier: Int,
+                           private val status: Status) {
   
   /**
    * This method retrieves the environment identifier.
