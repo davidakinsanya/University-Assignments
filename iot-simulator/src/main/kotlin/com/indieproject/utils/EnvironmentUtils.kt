@@ -24,12 +24,20 @@ class EnvironmentUtils {
   }
   
   /**
-   * 
+   * This method generates a random Status object to describe
+   * the condition of the given environment.
+   *
+   * @return a random Status object.
    */
    fun setStatus(): Status {
     return Status.values().random()
   }
   
+  /**
+   * This method generates an EnvironmentData object and feeds it with dummy data.
+   *
+   * @return an EnvironmentData object.
+   */
    fun generateEnvironmentObject(): EnvironmentData {
     return EnvironmentData(Environment.values().random(),
       EnvironmentUtils().setIdentifier(),
