@@ -34,13 +34,24 @@ class EnvironmentUtils {
   }
   
   /**
+   * This method generates a random Environment enum to describe
+   * the given environment.
+   *
+   * @return a random Environment enum.
+   */
+  fun setEnvironment(): Environment {
+    return Environment.values().random()
+  }
+  
+  /**
    * This method generates an EnvironmentData object and feeds it with dummy data.
    *
    * @return an EnvironmentData object.
    */
    fun generateEnvironmentObject(): EnvironmentData {
-    return EnvironmentData(Environment.values().random(),
-      EnvironmentUtils().setIdentifier(),
-      EnvironmentUtils().setStatus())
+    val utils = EnvironmentUtils()
+    return EnvironmentData(utils.setEnvironment(),
+      utils.setIdentifier(),
+      utils.setStatus())
   }
 }
