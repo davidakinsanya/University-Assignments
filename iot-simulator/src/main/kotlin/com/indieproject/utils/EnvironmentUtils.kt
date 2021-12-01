@@ -49,9 +49,8 @@ class EnvironmentUtils {
    * @return an EnvironmentData object.
    */
    fun generateEnvironmentObject(): EnvironmentData {
-    val utils = EnvironmentUtils()
-    return EnvironmentData(utils.setEnvironment(),
-      utils.setIdentifier(),
-      utils.setStatus())
+    return EnvironmentData(this.setEnvironment(),
+      this.setIdentifier(),
+      this.setStatus())
   }
 }
