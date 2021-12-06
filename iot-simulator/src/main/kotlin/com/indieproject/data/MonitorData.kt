@@ -35,7 +35,7 @@ data class MonitorData(
    * MonitorData object sent from the
    * simulated IOT device.
    */
-  private fun getMonitorNumber(): Int {
+  fun getMonitorNumber(): Int {
   return MonitorNumber
   }
   /**
@@ -47,7 +47,7 @@ data class MonitorData(
    * MonitorData object sent from the
    * simulated IOT device.
    */
-  private fun getPulse(): Int {
+  fun getPulse(): Int {
     return Pulse
   }
   /**
@@ -59,7 +59,7 @@ data class MonitorData(
    * MonitorData object sent from the
    * simulated IOT device.
    */
-  private fun getBloodPressure(): Array<Int> {
+  fun getBloodPressure(): Array<Int> {
     return BloodPressure
   }
   
@@ -72,7 +72,7 @@ data class MonitorData(
    * MonitorData object sent from the
    * simulated IOT device.
    */
-  private fun getOxygenSaturation(): Int {
+  fun getOxygenSaturation(): Int {
     return OxygenSaturation
   }
   
@@ -86,7 +86,7 @@ data class MonitorData(
    * MonitorData object sent from the
    * simulated IOT device.
    */
-  private fun getRespiration(): Int {
+  fun getRespiration(): Int {
     return Respiration
   }
   
@@ -99,7 +99,7 @@ data class MonitorData(
    * MonitorData object sent from the
    * simulated IOT device.
    */
-  private fun getTemperature(): Double {
+  fun getTemperature(): Double {
     return Temperature
   }
   
