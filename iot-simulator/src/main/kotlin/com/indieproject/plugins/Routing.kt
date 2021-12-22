@@ -15,5 +15,9 @@ fun Application.configureRouting() {
       get("/") {
         call.respond("Hello Ktor!")
       }
+  
+      get("/health-check") {
+        call.respond("Check successfull!")
+      }
     }
 }

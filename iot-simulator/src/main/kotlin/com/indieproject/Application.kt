@@ -11,7 +11,7 @@ import com.indieproject.plugins.*
  * @author David
  */
 fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
+    embeddedServer(Netty, port = 8080, host = "localhost") {
         configureSecurity()
         configureRouting()
         configureSerialization()
