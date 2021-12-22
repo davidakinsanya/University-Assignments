@@ -1,6 +1,4 @@
-package com.indieproject.data
-
-import kotlinx.serialization.Serializable
+package com.david.indieproject.data
 
 /**
  *  This class models the data displayed on
@@ -16,7 +14,6 @@ import kotlinx.serialization.Serializable
  *  @param Temperature A temperature reading from the simulated IOT device.
  *  @author David
  */
-@Serializable
 data class MonitorData(
                        private val MonitorNumber: Int,
                        private val Pulse: Int,

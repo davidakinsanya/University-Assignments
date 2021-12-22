@@ -1,6 +1,4 @@
-package com.indieproject.data
-
-import kotlinx.serialization.Serializable
+package com.david.indieproject.data
 
 /**
  * This class models the conditions of specific hospital environments.
@@ -11,7 +9,6 @@ import kotlinx.serialization.Serializable
  * @param status A Status object.
  * @author David
  */
-@Serializable
 data class EnvironmentData(private val environment: Environment,
                            private val identifier: Int,
                            private val status: Status) {

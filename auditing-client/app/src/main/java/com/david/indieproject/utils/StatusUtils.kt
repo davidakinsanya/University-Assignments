@@ -1,4 +1,4 @@
-package com.indieproject.utils
+package com.david.indieproject.utils
 
 import kotlin.random.Random
 

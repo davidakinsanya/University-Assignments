@@ -1,8 +1,8 @@
-package com.indieproject.utils
+package com.david.indieproject.utils
 
-import com.indieproject.data.Environment
-import com.indieproject.data.EnvironmentData
-import com.indieproject.data.Status
+import com.david.indieproject.data.Environment
+import com.david.indieproject.data.EnvironmentData
+import com.david.indieproject.data.Status
 import kotlin.random.Random
 
 /**

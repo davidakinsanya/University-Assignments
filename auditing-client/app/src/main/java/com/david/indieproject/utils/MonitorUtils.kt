@@ -1,6 +1,6 @@
-package com.indieproject.utils
+package com.david.indieproject.utils
 
-import com.indieproject.data.MonitorData
+import com.david.indieproject.data.MonitorData
 import kotlin.random.Random
 
 /**

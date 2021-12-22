@@ -1,7 +1,6 @@
-package com.indieproject.data
+package com.david.indieproject.data
 
-import com.indieproject.utils.StatusUtils
-import kotlinx.serialization.Serializable
+import com.david.indieproject.utils.StatusUtils
 
 /**
  * This class models the static categories of
@@ -11,7 +10,8 @@ import kotlinx.serialization.Serializable
  * @param rate the out of 10 rating within each static category.
  * @author David
  */
-@Serializable
+
+
 enum class Status(private val rate: Int) {
   SUB_OPTIMAL(StatusUtils().setRate()),
   MODERATE(StatusUtils().setRate()),
