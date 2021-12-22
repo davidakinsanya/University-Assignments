@@ -17,7 +17,7 @@ fun Application.configureRouting() {
       }
   
       get("/health-check") {
-        call.respond("Check successfull!")
+        call.respond("Check successful!")
       }
     }
 }
