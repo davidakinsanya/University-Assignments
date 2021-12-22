@@ -17,6 +17,7 @@ fun Application.configureRouting() {
       }
   
       get("/health-check") {
+        println("Check successful!")
         call.respond("Check successful!")
       }
     }
