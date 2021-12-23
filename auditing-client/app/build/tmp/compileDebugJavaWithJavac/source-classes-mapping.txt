@@ -1,0 +1,2 @@
+com/david/indieproject/BuildConfig.java
+ com.david.indieproject.BuildConfig
