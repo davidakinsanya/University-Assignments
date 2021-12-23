@@ -15,7 +15,7 @@ import io.ktor.server.engine.*
  */
 fun Application.environmentRoutes() {
   routing {
-    post("/environment") {
+    get("/environment") {
       try {
         val utils = EnvironmentUtils()
         call.respond(utils.generateEnvironmentObject())

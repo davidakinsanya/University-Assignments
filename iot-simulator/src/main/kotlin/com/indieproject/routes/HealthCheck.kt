@@ -1,24 +1,23 @@
 package com.indieproject.routes
 
-import com.indieproject.utils.MonitorUtils
 import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
 
 /**
- * This program generates a post route to send
- * a MonitorData object back to the client application.
+ * This program generates a get route to send
+ * a health check to validate the server's health.
  *
  * @throws BaseApplicationResponse.ResponseAlreadySentException
  * An exception thrown when the same request is called multiple times.
  */
-fun Application.monitorRoutes()  {
+fun Application.healthCheck()  {
   routing {
-    get("/monitor") {
+    get("/health-check") {
       try {
-        val utils = MonitorUtils()
-        call.respond(utils.generateMonitorObject())
+        println("Check successful!")
+        call.respond("Check successful!")
       } catch(B : BaseApplicationResponse.ResponseAlreadySentException) {}
     }
   }
