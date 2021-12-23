@@ -13,7 +13,7 @@ fun Application.configureRouting() {
       environmentRoutes()
       
       get("/") {
-        call.respond("1")
+        call.respond("Hello Ktor!")
       }
   
       get("/health-check") {
