@@ -12,7 +12,9 @@ fun Application.configureRouting() {
       monitorRoutes()
       environmentRoutes()
       
-      get("/"){}
+      get("/") {
+        call.respond("1")
+      }
   
       get("/health-check") {
         println("Check successful!")
