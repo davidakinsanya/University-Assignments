@@ -1,23 +1,12 @@
 package com.indieproject.client.repository
 
 import com.indieproject.client.data.EnvironmentData
-import com.indieproject.client.requests.EnvDataHandler
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.indieproject.client.requests.RetrofitInstance
+import retrofit2.Call
 
 class EnvRepository {
 
-  object RetrieveEnvData {
-    val handler: EnvDataHandler by lazy {
-      Retrofit.Builder()
-        .baseUrl("https://iot-simulator-iksj4.ondigitalocean.app")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(EnvDataHandler::class.java)
-    }
-  }
-
- fun getData(): EnvironmentData {
-   return RetrieveEnvData.handler.getData()
+ fun getData(): Call<EnvironmentData> {
+   return RetrofitInstance.env.getData()
  }
 }
