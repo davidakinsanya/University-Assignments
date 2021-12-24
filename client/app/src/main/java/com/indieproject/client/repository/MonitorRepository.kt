@@ -1,6 +1,5 @@
 package com.indieproject.client.repository
 
-import com.indieproject.client.data.EnvironmentData
 import com.indieproject.client.data.MonitorData
 import com.indieproject.client.requests.MonitorDataHandler
 import retrofit2.Call
