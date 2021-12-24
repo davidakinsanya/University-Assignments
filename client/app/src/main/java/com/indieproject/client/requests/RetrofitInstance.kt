@@ -5,9 +5,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
 
+  private const val base_url = "https://iot-simulator-iksj4.ondigitalocean.app"
+
   val env: EnvDataHandler by lazy {
     Retrofit.Builder()
-      .baseUrl("https://iot-simulator-iksj4.ondigitalocean.app")
+      .baseUrl(base_url)
       .addConverterFactory(GsonConverterFactory.create())
       .build()
       .create(EnvDataHandler::class.java)
@@ -15,7 +17,7 @@ object RetrofitInstance {
 
   val mon: MonitorDataHandler by lazy {
     Retrofit.Builder()
-      .baseUrl("https://iot-simulator-iksj4.ondigitalocean.app")
+      .baseUrl(base_url)
       .addConverterFactory(GsonConverterFactory.create())
       .build()
       .create(MonitorDataHandler::class.java)
