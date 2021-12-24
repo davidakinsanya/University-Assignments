@@ -1,4 +1,21 @@
 package com.indieproject.client.repository
 
+import com.indieproject.client.requests.MonitorDataHandler
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
 class MonitorRepository {
+
+  object retrieveData {
+    val handler: MonitorDataHandler by lazy {
+      Retrofit.Builder()
+        .baseUrl("https://iot-simulator-iksj4.ondigitalocean.app")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+        .create(MonitorDataHandler::class.java)
+    }
+  }
+
+
+
 }
