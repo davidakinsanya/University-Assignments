@@ -2,7 +2,6 @@ package com.indieproject.client.repository
 
 import com.indieproject.client.data.EnvironmentData
 import com.indieproject.client.requests.EnvDataHandler
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -18,7 +17,7 @@ class EnvRepository {
     }
   }
 
- fun getData(): Call<EnvironmentData> {
+ fun getData(): EnvironmentData {
    return RetrieveEnvData.handler.getData()
  }
 }

@@ -2,7 +2,6 @@ package com.indieproject.client.repository
 
 import com.indieproject.client.data.MonitorData
 import com.indieproject.client.requests.MonitorDataHandler
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -18,7 +17,7 @@ class MonitorRepository {
     }
   }
 
-  fun getData(): Call<MonitorData> {
+  fun getData(): MonitorData {
     return RetrieveMonitorData.handler.getData()
   }
 }
