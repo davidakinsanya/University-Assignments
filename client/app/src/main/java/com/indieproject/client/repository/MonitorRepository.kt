@@ -11,9 +11,9 @@ import retrofit2.Response
 
 class MonitorRepository {
 
-  fun generateLogMessage(mon: MonitorData?): String {
+  fun generateLogMessage(mon: MonitorData?) {
     val createMsg = MonitorMsg(mon)
-    return createMsg.generateLogMessage()
+    val msg = createMsg.generateLogMessage()
   }
 
   fun getData() {

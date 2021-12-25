@@ -10,9 +10,9 @@ import retrofit2.Response
 
 class EnvRepository {
 
-  fun generateLogMessage(env: EnvironmentData?): String {
+  fun generateLogMessage(env: EnvironmentData?) {
     val createMsg = EnvMsg(env)
-    return createMsg.generateLogMessage()
+    val msg = createMsg.generateLogMessage()
   }
 
    fun getData() {
