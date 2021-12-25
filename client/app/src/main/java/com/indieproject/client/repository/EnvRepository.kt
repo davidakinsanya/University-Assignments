@@ -12,7 +12,6 @@ class EnvRepository {
   fun generateLogMessage(env: EnvironmentData?) {}
 
    fun getData() {
-     var responseBody: EnvironmentData? = null;
      RetrofitInstance.env.getData().enqueue(object : Callback<EnvironmentData?> {
        override fun onResponse(call: Call<EnvironmentData?>, response: Response<EnvironmentData?>) {
         generateLogMessage(response.body())

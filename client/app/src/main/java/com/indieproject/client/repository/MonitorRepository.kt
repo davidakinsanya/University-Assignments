@@ -13,7 +13,6 @@ class MonitorRepository {
   fun generateLogMessage(mon: MonitorData?) {}
 
   fun getData() {
-    var responseBody: MonitorData? = null;
     RetrofitInstance.mon.getData().enqueue(object : Callback<MonitorData?> {
       override fun onResponse(call: Call<MonitorData?>, response: Response<MonitorData?>) {
         generateLogMessage(response.body())
