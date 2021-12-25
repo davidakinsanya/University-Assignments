@@ -10,12 +10,13 @@ import retrofit2.Response
 
 class MonitorRepository {
 
+  fun generateLogMessage(mon: MonitorData?) {}
+
   fun getData() {
     var responseBody: MonitorData? = null;
     RetrofitInstance.mon.getData().enqueue(object : Callback<MonitorData?> {
       override fun onResponse(call: Call<MonitorData?>, response: Response<MonitorData?>) {
-        responseBody = response.body()
-        //Log.d("Success", responseBody.toString())
+        generateLogMessage(response.body())
       }
 
       override fun onFailure(call: Call<MonitorData?>, t: Throwable) {

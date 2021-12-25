@@ -9,12 +9,13 @@ import retrofit2.Response
 
 class EnvRepository {
 
+  fun generateLogMessage(env: EnvironmentData?) {}
+
    fun getData() {
      var responseBody: EnvironmentData? = null;
      RetrofitInstance.env.getData().enqueue(object : Callback<EnvironmentData?> {
        override fun onResponse(call: Call<EnvironmentData?>, response: Response<EnvironmentData?>) {
-        responseBody = response.body()
-         //Log.d("Success", responseBody.toString())
+        generateLogMessage(response.body())
        }
 
        override fun onFailure(call: Call<EnvironmentData?>, t: Throwable) {
