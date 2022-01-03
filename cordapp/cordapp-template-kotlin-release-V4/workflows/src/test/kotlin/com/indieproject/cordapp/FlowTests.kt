@@ -1,14 +1,14 @@
-package com.template
+package com.indieproject.cordapp
 
 import net.corda.testing.node.*
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import com.template.states.MsgState
+import com.indieproject.cordapp.states.MsgState
 import java.util.concurrent.Future;
 import net.corda.core.node.services.vault.QueryCriteria
 import net.corda.core.transactions.SignedTransaction
-import com.template.flows.Initiator
+import com.indieproject.cordapp.flows.Initiator
 import net.corda.core.node.services.Vault.StateStatus
 
 

@@ -1,6 +1,6 @@
-package com.template.contracts
+package com.indieproject.cordapp.contracts
 
-import com.template.states.MsgState
+import com.indieproject.cordapp.states.MsgState
 import org.junit.Test
 import kotlin.test.assertEquals
 

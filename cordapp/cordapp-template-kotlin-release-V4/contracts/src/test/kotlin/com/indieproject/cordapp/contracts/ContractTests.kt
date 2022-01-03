@@ -1,11 +1,11 @@
-package com.template.contracts
+package com.indieproject.cordapp.contracts
 
 import net.corda.core.identity.CordaX500Name
 import net.corda.testing.core.TestIdentity
 import net.corda.testing.node.MockServices
 import net.corda.testing.node.ledger
 import org.junit.Test
-import com.template.states.MsgState
+import com.indieproject.cordapp.states.MsgState
 
 class ContractTests {
     private val ledgerServices: MockServices = MockServices(listOf("com.template"))

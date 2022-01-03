@@ -1,6 +1,6 @@
-package com.template.contracts
+package com.indieproject.cordapp.contracts
 
-import com.template.states.MsgState
+import com.indieproject.cordapp.states.MsgState
 import net.corda.core.contracts.CommandData
 import net.corda.core.contracts.Contract
 import net.corda.core.contracts.requireSingleCommand

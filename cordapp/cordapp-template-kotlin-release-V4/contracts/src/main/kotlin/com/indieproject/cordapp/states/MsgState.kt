@@ -1,0 +1,22 @@
+package com.indieproject.cordapp.states
+
+import com.indieproject.cordapp.contracts.MsgContract
+import net.corda.core.contracts.BelongsToContract
+import net.corda.core.contracts.ContractState
+import net.corda.core.identity.AbstractParty
+import net.corda.core.identity.Party
+
+// *********
+// * State *
+// *********
+@BelongsToContract(MsgContract::class)
+data class MsgState(private val msg: String,
+                    private val client: Party,
+                    private val ledger: Party,
+                    override val participants: List<AbstractParty> = listOf(client, ledger)
+) : ContractState {
+
+  public fun getMsg(): String { return this.msg }
+  public fun getClient(): Party { return this.client }
+  public fun getLedger(): Party { return this.ledger }
+}

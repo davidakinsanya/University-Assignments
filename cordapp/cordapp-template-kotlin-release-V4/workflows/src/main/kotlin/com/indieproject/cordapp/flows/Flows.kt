@@ -1,4 +1,4 @@
-package com.template.flows
+package com.indieproject.cordapp.flows
 
 import co.paralleluniverse.fibers.Suspendable
 import net.corda.core.flows.*
@@ -15,11 +15,11 @@ import net.corda.core.flows.FlowSession
 
 import net.corda.core.identity.Party
 
-import com.template.contracts.MsgContract
+import com.indieproject.cordapp.contracts.MsgContract
 
 import net.corda.core.transactions.TransactionBuilder
 
-import com.template.states.MsgState
+import com.indieproject.cordapp.states.MsgState
 import net.corda.core.contracts.requireThat
 import net.corda.core.identity.AbstractParty
 
