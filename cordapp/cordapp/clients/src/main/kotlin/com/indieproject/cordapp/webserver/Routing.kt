@@ -5,7 +5,7 @@ import io.ktor.routing.*
 
 fun Application.msgRouting() {
  routing {
-  post {  }
+  // post {  }
  }
 }
 
