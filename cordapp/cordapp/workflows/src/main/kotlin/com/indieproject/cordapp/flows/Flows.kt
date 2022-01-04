@@ -34,30 +34,22 @@ class MsgFlowInitiator(private val state: MsgState) : FlowLogic<SignedTransactio
   
   @Suspendable
   override fun call(): SignedTransaction {
-    //Hello World message
-    val msg = state.getMsg()
-    val party = state.getParty()
-    val counterparty = state.getCounterParty()
     
-    // Step 1. Get a reference to the notary service on our network and our key pair.
-    // Note: ongoing work to support multiple notary identities is still in progress.
+    val msg = this.state.getMsg()
+    val party = this.state.getParty()
+    val counterparty = this.state.getCounterParty()
     val notary = serviceHub.networkMapCache.notaryIdentities[0]
     
-    //Compose the State that carries the Hello World message
-    val output = MsgState(msg, party, counterparty)
-    
-    // Step 3. Create a new TransactionBuilder object.
     val builder = TransactionBuilder(notary)
       .addCommand(MsgContract.Commands.Create(), listOf(party.owningKey, counterparty.owningKey))
-      .addOutputState(output)
+      .addOutputState(this.state, MsgContract.ID)
     
-    // Step 4. Verify and sign it with our KeyPair.
-    builder.verify(serviceHub)
-    val ptx = serviceHub.signInitialTransaction(builder)
+      builder.verify(serviceHub)
+      val ptx = serviceHub.signInitialTransaction(builder)
     
     
     // Step 6. Collect the other party's signature using the SignTransactionFlow.
-    val otherParties: MutableList<Party> = output.participants.stream().map { el: AbstractParty? -> el as Party? }.collect(Collectors.toList())
+    val otherParties: MutableList<Party> = this.state.participants.stream().map { el: AbstractParty? -> el as Party? }.collect(Collectors.toList())
     otherParties.remove(ourIdentity)
     val sessions = otherParties.stream().map { el: Party? -> initiateFlow(el!!) }.collect(Collectors.toList())
     
