@@ -12,7 +12,7 @@ import net.corda.core.contracts.requireThat
 class MsgContract : Contract {
     companion object {
         // Used to identify our contract when building a transaction.
-        const val ID = "com.template.contracts.TemplateContract"
+        const val ID = "com.indieproject.cordapp.contracts.MsgContract"
     }
 
     // A transaction is valid if the verify() function of the contract of all the transaction's input and output states
@@ -24,7 +24,7 @@ class MsgContract : Contract {
         when (command.value) {
             is Commands.Create -> requireThat {
                 "No inputs should be consumed when sending the Hello-World message.".using(tx.inputStates.isEmpty())
-                "The message must be Hello-World".using(output.msg == "Hello-World")
+                "The message must be Hello-World".using(output.getMsg() == "Hello-World")
             }
         }
     }

@@ -11,12 +11,12 @@ import net.corda.core.identity.Party
 // *********
 @BelongsToContract(MsgContract::class)
 data class MsgState(private val msg: String,
-                    private val client: Party,
-                    private val ledger: Party,
-                    override val participants: List<AbstractParty> = listOf(client, ledger)
+                    private val party: Party,
+                    private val counterparty: Party,
+                    override val participants: List<AbstractParty> = listOf(party, counterparty)
 ) : ContractState {
 
   public fun getMsg(): String { return this.msg }
-  public fun getClient(): Party { return this.client }
-  public fun getLedger(): Party { return this.ledger }
+  public fun getParty(): Party { return this.party }
+  public fun getCounterParty(): Party { return this.counterparty }
 }
