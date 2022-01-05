@@ -36,7 +36,6 @@ class MsgFlowInitiator(private val state: MsgState) : FlowLogic<SignedTransactio
   override fun call(): SignedTransaction {
     
     val msg = this.state.getMsg()
-    val party = this.state.getParty()
     val counterparty = this.state.getCounterParty()
     val notary = serviceHub.networkMapCache.notaryIdentities[0]
     
