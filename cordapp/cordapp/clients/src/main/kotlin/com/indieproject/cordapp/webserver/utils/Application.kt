@@ -1,8 +1,9 @@
-package com.indieproject.cordapp.webserver
+package com.indieproject.cordapp.webserver.utils
 
 import com.fasterxml.jackson.core.util.DefaultIndenter
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.indieproject.cordapp.webserver.routes.msgRouting
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.http.*
@@ -20,7 +21,7 @@ fun Application.mainModule(args: Array<String>) {
   val connection: CordaRPCConnection = connectToNode(args)
   install(CallLogging) { level = Level.INFO }
   install(ContentNegotiation) { cordaJackson(connection.proxy) }
-  routing { msgRouting(connection) }
+  routing { msgRouting(connection.proxy) }
   addShutdownEvent(connection)
 }
 

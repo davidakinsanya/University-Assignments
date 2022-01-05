@@ -1,4 +1,4 @@
-package com.indieproject.cordapp.webserver
+package com.indieproject.cordapp.webserver.utils
 
 import net.corda.client.rpc.CordaRPCClient
 import net.corda.client.rpc.CordaRPCConnection
