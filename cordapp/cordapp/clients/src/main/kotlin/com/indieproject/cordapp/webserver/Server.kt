@@ -40,7 +40,7 @@ fun Application.mainModule(args: Array<String>) {
     val connection: CordaRPCConnection = connectToNode(args)
     install(CallLogging) { level = Level.INFO }
     install(ContentNegotiation) { cordaJackson(connection.proxy) }
-    routing { msgRouting() }
+    routing { msgRouting(connection) }
     addShutdownEvent(connection)
 }
 

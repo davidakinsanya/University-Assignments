@@ -1,5 +1,6 @@
 package com.indieproject.cordapp
 
+import com.indieproject.cordapp.flows.MsgFlowInitiator
 import net.corda.client.rpc.CordaRPCClient
 import net.corda.core.utilities.NetworkHostAndPort.Companion.parse
 import net.corda.core.utilities.loggerFor
