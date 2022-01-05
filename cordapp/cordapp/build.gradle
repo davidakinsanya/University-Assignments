@@ -7,7 +7,7 @@ buildscript { //properties that you need to build the project
         corda_core_release_group =  constants.getProperty("cordaCoreReleaseGroup")
         corda_release_version = constants.getProperty("cordaVersion")
         corda_core_release_version = constants.getProperty("cordaCoreVersion")
-        corda_gradle_plugins_version = constants.getProperty("gradlePluginsVersion") // TODO: Solve bug.
+        corda_gradle_plugins_version = constants.getProperty("gradlePluginsVersion")
         kotlin_version = constants.getProperty("kotlinVersion")
         ktor_version = constants.getProperty("ktorVersion")
         junit_version = constants.getProperty("junitVersion")
