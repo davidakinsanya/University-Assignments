@@ -43,12 +43,3 @@ task runTemplateServer(type: JavaExec, dependsOn: assemble) {
     main = 'com.template.webserver.ServerKt'
     args '0.0.0.0', '10006', 'user1', 'test'
 }
-
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-    kotlinOptions {
-        languageVersion = "1.3"
-        apiVersion = "1.3"
-        jvmTarget = "1.8"
-        javaParameters = true // Useful for reflection.
-    }
-}

@@ -46,8 +46,8 @@ allprojects { //Properties that you need to compile your project (The applicatio
 
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
         kotlinOptions {
-            languageVersion = "1.2"
-            apiVersion = "1.2"
+            languageVersion = "1.3"
+            apiVersion = "1.3"
             jvmTarget = "1.8"
             javaParameters = true   // Useful for reflection.
         }
@@ -127,5 +127,4 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         }
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
     }
-
 }
