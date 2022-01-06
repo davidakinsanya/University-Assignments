@@ -10,7 +10,6 @@ class NetworkParty {
   
   private val partyA = Party(name = CordaX500Name.parse("Eryk"), owningKey = this.getPublicKey())
   private val partyB = Party(name = CordaX500Name.parse("Laadi"), owningKey = this.getPublicKey())
-  private val partyC = Party(name = CordaX500Name.parse("Kieran"), owningKey = this.getPublicKey())
   
   private fun getPublicKey(): PublicKey {
     val keyGen = KeyPairGenerator.getInstance("RSA", "SUN")
@@ -19,6 +18,6 @@ class NetworkParty {
   }
   
   fun getPartyList(): List<Party> {
-    return listOf<Party>(this.partyA, this.partyB, this.partyC)
+    return listOf<Party>(this.partyA, this.partyB)
   }
 }

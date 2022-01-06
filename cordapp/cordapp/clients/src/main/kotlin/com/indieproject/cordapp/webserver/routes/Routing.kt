@@ -14,7 +14,6 @@ fun Application.msgRouting(proxy: CordaRPCOps) {
       try {
         val msg: String? = call.parameters["newMsg"]
         val counterParty = NetworkParty().getPartyList().random()
-        val name = proxy.wellKnownPartyFromX500Name(counterParty.name)
         if (msg != null) {
           val msgState: MsgState = MsgState(msg, counterParty);
           val flow = proxy.startTrackedFlowDynamic(MsgFlowInitiator::class.java, msgState)
