@@ -82,6 +82,13 @@ dependencies {
     cordaCompile "org.slf4j:jul-to-slf4j:$slf4j_version"
 }
 
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'com.indieproject.cordapp.webserver.ServerKt'
+    }
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     nodeDefaults {
         projectCordapp {
