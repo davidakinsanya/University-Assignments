@@ -7,7 +7,6 @@ import io.ktor.application.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
 import net.corda.core.messaging.CordaRPCOps
-import java.util.*
 
 fun Application.msgRouting(proxy: CordaRPCOps) {
   routing {
@@ -18,7 +17,7 @@ fun Application.msgRouting(proxy: CordaRPCOps) {
         val name = proxy.wellKnownPartyFromX500Name(counterParty.name)
         if (msg != null) {
           val msgState: MsgState = MsgState(msg, counterParty);
-          // val flow = proxy.startFlowDynamic().getReturnValue().get()
+          val flow = proxy.startTrackedFlowDynamic(MsgFlowInitiator::class.java, msgState)
           // TODO: Initiate transaction.
         }
       } catch (b: BaseApplicationResponse.ResponseAlreadySentException) {}

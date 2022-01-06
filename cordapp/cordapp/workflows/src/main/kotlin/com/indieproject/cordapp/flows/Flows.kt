@@ -40,7 +40,7 @@ class MsgFlowInitiator(private val state: MsgState) : FlowLogic<SignedTransactio
     val notary = serviceHub.networkMapCache.notaryIdentities[0]
     
     val builder = TransactionBuilder(notary)
-      .addCommand(MsgContract.Commands.Create(), listOf(party.owningKey, counterparty.owningKey))
+      .addCommand(MsgContract.Commands.Create(), listOf(counterparty.owningKey))
       .addOutputState(this.state, MsgContract.ID)
     
       builder.verify(serviceHub)
