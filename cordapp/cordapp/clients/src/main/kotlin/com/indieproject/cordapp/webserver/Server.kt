@@ -8,7 +8,7 @@ import io.ktor.server.netty.*
 
 fun main(args: Array<String>) {
     embeddedServer(Netty, port = 10050) {
-        mainModule(args)
+        mainModule()
     }.start().addShutdownHook()
 }
 

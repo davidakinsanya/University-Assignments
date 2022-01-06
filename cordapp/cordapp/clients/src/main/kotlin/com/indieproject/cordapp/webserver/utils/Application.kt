@@ -17,8 +17,8 @@ import net.corda.core.messaging.CordaRPCOps
 import org.slf4j.event.Level
 import java.util.concurrent.TimeUnit
 
-fun Application.mainModule(args: Array<String>) {
-  val connection: CordaRPCConnection = connectToNode(args)
+fun Application.mainModule() {
+  val connection: CordaRPCConnection = connectToNode()
   install(CallLogging) { level = Level.INFO }
   install(ContentNegotiation) { cordaJackson(connection.proxy) }
   routing { msgRouting(connection.proxy) }
