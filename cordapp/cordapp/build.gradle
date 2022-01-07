@@ -53,7 +53,7 @@ allprojects {
         }
     }
 }
-// apply plugin: id("com.github.johnrengelman.shadow") version "7.0.0"
+
 apply plugin: 'net.corda.plugins.cordapp'
 apply plugin: 'net.corda.plugins.cordformation'
 apply plugin: 'net.corda.plugins.quasar-utils'
@@ -84,11 +84,13 @@ dependencies {
 
 task fatJar(type: Jar) {
     manifest {
+        attributes 'Class-Path': 'cordapp/build/libs/cordap-0.1.jar'
         attributes 'Main-Class': 'com.indieproject.cordapp.webserver.ServerKt'
     }
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
+
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     nodeDefaults {
         projectCordapp {
