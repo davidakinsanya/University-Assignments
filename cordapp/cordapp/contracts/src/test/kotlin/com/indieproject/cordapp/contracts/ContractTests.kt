@@ -14,7 +14,7 @@ class ContractTests {
 
     @Test
     fun dummytest() {
-        val state = MsgState("Hello-World", alice.party, bob.party)
+        val state = MsgState("Hello-World", alice.party, listOf(alice.party, bob.party))
         ledgerServices.ledger {
             // Should fail bid price is equal to previous highest bid
             transaction {

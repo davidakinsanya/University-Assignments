@@ -42,5 +42,19 @@ task runTemplateClient(type: JavaExec, dependsOn: assemble) {
 task runTemplateServer(type: JavaExec, dependsOn: assemble) {
     classpath = sourceSets.main.runtimeClasspath
     main = 'com.indieproject.cordapp.webserver.ServerKt'
-    args '0.0.0.0', '10006', 'user1', 'test'
+
 }
+
+/*
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Class-Path': '../../classes/kotlin/main'
+        attributes 'Main-Class': 'com.indieproject.cordapp.webserver.ServerKt'
+    }
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+*/
+
+// java -cp '../../classes/kotlin/main' com.indieproject.cordapp.webserver.ServerKt

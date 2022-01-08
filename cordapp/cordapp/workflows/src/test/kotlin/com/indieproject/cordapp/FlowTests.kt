@@ -8,7 +8,6 @@ import com.indieproject.cordapp.states.MsgState
 import java.util.concurrent.Future;
 import net.corda.core.node.services.vault.QueryCriteria
 import net.corda.core.transactions.SignedTransaction
-import com.indieproject.cordapp.flows.Initiator
 import net.corda.core.node.services.Vault.StateStatus
 
 
@@ -32,6 +31,7 @@ class FlowTests {
     fun tearDown() {
         network.stopNodes()
     }
+    /*
     @Test
     fun `DummyTest`() {
         val flow = Initiator(b.info.legalIdentities[0])
@@ -42,4 +42,5 @@ class FlowTests {
         val inputCriteria: QueryCriteria = QueryCriteria.VaultQueryCriteria().withStatus(StateStatus.UNCONSUMED)
         val state = b.services.vaultService.queryBy(MsgState::class.java, inputCriteria).states[0].state.data
     }
+     */
 }
