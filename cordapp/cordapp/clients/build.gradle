@@ -10,7 +10,6 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'kotlin'
-apply plugin: 'application'
 
 java {
     disableAutoTargetJvm()
@@ -36,25 +35,8 @@ task runTemplateClient(type: JavaExec, dependsOn: assemble) {
     args 'localhost:10006', 'user1', 'test'
 }
 
-/* This task will start the springboot server that connects to your node (via RPC connection). All of the http requests
- * are in the Controller file. You can leave the Server.kt and NodeRPCConnection.kt file untouched for your use.
- */
 task runTemplateServer(type: JavaExec, dependsOn: assemble) {
     classpath = sourceSets.main.runtimeClasspath
     main = 'com.indieproject.cordapp.webserver.ServerKt'
 
 }
-
-/*
-task fatJar(type: Jar) {
-    manifest {
-        attributes 'Class-Path': '../../classes/kotlin/main'
-        attributes 'Main-Class': 'com.indieproject.cordapp.webserver.ServerKt'
-    }
-    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
-}
-
-*/
-
-// java -cp '../../classes/kotlin/main' com.indieproject.cordapp.webserver.ServerKt
