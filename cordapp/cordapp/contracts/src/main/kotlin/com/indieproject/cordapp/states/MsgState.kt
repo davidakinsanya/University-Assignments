@@ -6,9 +6,6 @@ import net.corda.core.contracts.ContractState
 import net.corda.core.identity.AbstractParty
 import net.corda.core.identity.Party
 
-// *********
-// * State *
-// *********
 @BelongsToContract(MsgContract::class)
 data class MsgState(private val msg: String?,
                     private val counterparty: Party,

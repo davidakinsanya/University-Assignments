@@ -61,9 +61,6 @@ class MsgFlowInitiator(private val state: MsgState) : FlowLogic<SignedTransactio
 
 
 
-
-
-
 @InitiatedBy(MsgFlowInitiator::class)
 class MsgFlowResponder(val counterpartySession: FlowSession) : FlowLogic<SignedTransaction>() {
   @Suspendable

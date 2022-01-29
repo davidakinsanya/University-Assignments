@@ -16,8 +16,7 @@ fun Application.msgRouting(proxy: CordaRPCOps) {
         val counterParty = NetworkParty().getPartyList().random()
         if (msg != null) {
           val msgState: MsgState = MsgState(msg, counterParty);
-          val flow = proxy.startTrackedFlowDynamic(MsgFlowInitiator::class.java, msgState)
-          // TODO: Initiate transaction.
+          proxy.startTrackedFlowDynamic(MsgFlowInitiator::class.java, msgState)
         }
       } catch (b: BaseApplicationResponse.ResponseAlreadySentException) {}
     }

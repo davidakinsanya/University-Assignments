@@ -35,8 +35,7 @@ task runTemplateClient(type: JavaExec, dependsOn: assemble) {
     args 'localhost:10006', 'user1', 'test'
 }
 
-task runTemplateServer(type: JavaExec, dependsOn: assemble) {
+task runServer(type: JavaExec, dependsOn: assemble) {
     classpath = sourceSets.main.runtimeClasspath
     main = 'com.indieproject.cordapp.webserver.ServerKt'
-
 }
