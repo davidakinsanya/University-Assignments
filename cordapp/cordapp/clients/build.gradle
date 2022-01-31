@@ -29,12 +29,6 @@ dependencies {
     compile project(":workflows")
 }
 
-task runTemplateClient(type: JavaExec, dependsOn: assemble) {
-    classpath = sourceSets.main.runtimeClasspath
-    main = 'com.indieproject.cordapp.webserver.ServerKt'
-    args 'localhost:10006', 'user1', 'test'
-}
-
 task runServer(type: JavaExec, dependsOn: assemble) {
     classpath = sourceSets.main.runtimeClasspath
     main = 'com.indieproject.cordapp.webserver.ServerKt'
