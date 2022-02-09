@@ -11,7 +11,7 @@ data class MsgState(private val msg: String?,
                     private val counterparty: Party,
                     override val participants: List<AbstractParty> = listOf(counterparty)
 ) : ContractState {
-
+  
   public fun getMsg(): String? { return this.msg }
   public fun getCounterParty(): Party { return this.counterparty }
 }

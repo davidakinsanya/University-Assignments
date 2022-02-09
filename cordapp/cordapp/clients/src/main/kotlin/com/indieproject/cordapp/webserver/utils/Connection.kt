@@ -7,7 +7,11 @@ import net.corda.core.utilities.NetworkHostAndPort
 
 
 fun connectToNode(): CordaRPCConnection {
+<<<<<<< HEAD
   val host: String = "159.223.165.12"
+=======
+  val host: String = "localhost"
+>>>>>>> 2c6d15d8248a513220b05fb9bdda354e0809a6f0
   val rpcPort: Int = 10006
   val username: String = "user1"
   val password: String = "test"
