@@ -17,5 +17,8 @@ fun connectToNode(): CordaRPCConnection {
   
   return rpcClient.start(username, password)
 }
+<<<<<<< HEAD
 
 // TODO: Re-write docker-compose file to execute corda.jar shells in the containers.
+=======
+>>>>>>> 148c3b9c79cf919b320e49d16eb2f2e379b0c170
