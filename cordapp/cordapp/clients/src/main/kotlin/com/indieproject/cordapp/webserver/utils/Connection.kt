@@ -7,7 +7,7 @@ import net.corda.core.utilities.NetworkHostAndPort
 
 
 fun connectToNode(): CordaRPCConnection {
-  val host: String = "localhost"
+  val host: String = "67.205.179.38"
   val rpcPort: Int = 10006
   val username: String = "user1"
   val password: String = "test"
@@ -17,3 +17,5 @@ fun connectToNode(): CordaRPCConnection {
   
   return rpcClient.start(username, password)
 }
+
+// TODO: Re-write docker-compose file to execute corda.jar shells in the containers.
