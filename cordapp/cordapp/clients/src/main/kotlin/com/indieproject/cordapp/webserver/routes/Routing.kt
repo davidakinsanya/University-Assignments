@@ -4,6 +4,7 @@ import com.indieproject.cordapp.flows.MsgFlowInitiator
 import com.indieproject.cordapp.states.MsgState
 import com.indieproject.cordapp.webserver.party.NetworkParty
 import io.ktor.application.*
+import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
 import net.corda.core.identity.Party
@@ -21,6 +22,13 @@ fun Application.msgRouting(proxy: CordaRPCOps) {
         }
       } catch (b: BaseApplicationResponse.ResponseAlreadySentException) {}
     }
+    
+    get("/heath-check") {
+      try {
+        println("Check successful!")
+        call.respond("Check successful!")
+      } catch(B : BaseApplicationResponse.ResponseAlreadySentException) {}
+    }
+    }
   }
-}
 
