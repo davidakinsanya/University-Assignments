@@ -1,6 +1,6 @@
 package com.indieproject.client.msg
 
-import com.indieproject.client.data.MonitorData
+import com.indieproject.client.data.iot.MonitorData
 
 // TODO: create multiple Enum classes to assist in
 //  deciphering what each data point means

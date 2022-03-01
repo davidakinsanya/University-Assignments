@@ -1,18 +1,19 @@
-package com.indieproject.client.data
+package com.indieproject.client.data.iot
 
 
 /**
  * This class models the conditions of specific hospital environments.
  *
  *
- * @param environment An Environment object.
+ * @param environment An EnvMetric object.
  * @param identifier An arbitrary integer identifying the environment object.
  * @param status A Status object.
  * @author David
  */
 data class EnvironmentData(private val environment: Environment,
                            private val identifier: Int,
-                           private val status: Status) {
+                           private val status: Status
+) {
   
   /**
    * This method retrieves the environment identifier.

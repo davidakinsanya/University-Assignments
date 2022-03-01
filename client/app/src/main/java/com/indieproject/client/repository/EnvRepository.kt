@@ -1,7 +1,7 @@
 package com.indieproject.client.repository
 
 import android.util.Log
-import com.indieproject.client.data.EnvironmentData
+import com.indieproject.client.data.iot.EnvironmentData
 import com.indieproject.client.msg.EnvMsg
 import com.indieproject.client.requests.RetrofitInstance
 import retrofit2.Call

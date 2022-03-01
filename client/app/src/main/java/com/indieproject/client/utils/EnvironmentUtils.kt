@@ -1,8 +1,8 @@
 package com.indieproject.utils
 
-import com.indieproject.client.data.Environment
-import com.indieproject.client.data.EnvironmentData
-import com.indieproject.client.data.Status
+import com.indieproject.client.data.iot.Environment
+import com.indieproject.client.data.iot.EnvironmentData
+import com.indieproject.client.data.iot.Status
 import kotlin.random.Random
 
 /**
@@ -34,10 +34,10 @@ class EnvironmentUtils {
   }
   
   /**
-   * This method generates a random Environment enum to describe
+   * This method generates a random EnvMetric enum to describe
    * the given environment.
    *
-   * @return a random Environment enum.
+   * @return a random EnvMetric enum.
    */
   fun setEnvironment(): Environment {
     return Environment.values().random()

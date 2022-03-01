@@ -1,7 +1,7 @@
 package com.indieproject.client.repository
 
 import android.util.Log
-import com.indieproject.client.data.MonitorData
+import com.indieproject.client.data.iot.MonitorData
 import com.indieproject.client.msg.MonitorMsg
 import com.indieproject.client.requests.RetrofitInstance
 import retrofit2.Call

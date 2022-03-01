@@ -1,6 +1,6 @@
 package com.indieproject.client.requests
 
-import com.indieproject.client.data.MonitorData
+import com.indieproject.client.data.iot.MonitorData
 import retrofit2.Call
 import retrofit2.http.GET
 

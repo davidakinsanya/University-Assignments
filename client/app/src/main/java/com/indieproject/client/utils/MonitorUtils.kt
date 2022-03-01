@@ -1,6 +1,6 @@
 package com.indieproject.utils
 
-import com.indieproject.client.data.MonitorData
+import com.indieproject.client.data.iot.MonitorData
 import kotlin.random.Random
 
 /**
