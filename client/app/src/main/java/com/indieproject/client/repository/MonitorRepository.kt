@@ -13,7 +13,7 @@ class MonitorRepository {
 
   fun generateLogMessage(mon: MonitorData?) {
     val createMsg = MonitorMsg(mon)
-    val msg = createMsg.generateLogMessage()
+    val msg = createMsg.generateLogMessage(createMsg.getLogList())
   }
 
   fun getData() {

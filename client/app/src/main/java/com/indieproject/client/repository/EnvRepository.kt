@@ -12,7 +12,7 @@ class EnvRepository {
 
   fun generateLogMessage(env: EnvironmentData?) {
     val createMsg = EnvMsg(env)
-    val msg = createMsg.generateLogMessage()
+    val msg = createMsg.generateLogMessage(createMsg.evalEnvironmentLog())
   }
 
    fun getData() {
