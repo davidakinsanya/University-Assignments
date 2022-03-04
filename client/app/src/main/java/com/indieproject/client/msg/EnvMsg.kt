@@ -22,11 +22,11 @@ class EnvMsg constructor(private val env: EnvironmentData?) {
   private fun evalLog(): MsgLog {
     val log: MsgLog = if (this.env!!.getStatus() == Status.SUB_OPTIMAL) {
       MsgLog.SUB_OPTIMAL
-    } else if (this.env.getStatus() == Status.MODERATE && this.env!!.getIdentifier() <= 6) {
+    } else if (this.env.getStatus() == Status.MODERATE && this.env.getIdentifier() <= 6) {
       MsgLog.MODERATE
-    } else if (this.env.getStatus() == Status.MODERATE && this.env!!.getIdentifier() > 6) {
+    } else if (this.env.getStatus() == Status.MODERATE && this.env.getIdentifier() > 6) {
       MsgLog.STANDARD
-    } else if (this.env.getStatus() == Status.STANDARD && this.env!!.getIdentifier() <= 5) {
+    } else if (this.env.getStatus() == Status.STANDARD && this.env.getIdentifier() <= 5) {
       MsgLog.STANDARD
     } else {
       MsgLog.SUB_OPTIMAL
@@ -40,6 +40,6 @@ class EnvMsg constructor(private val env: EnvironmentData?) {
   }
 
   fun generateLogMessage(log: EnvironmentLog): String {
-    return "${log.getEnvMetric()} # ${this.env!!.getIdentifier()}: ${log.getLog().getStatus()}"
+    return "${log.getEnvMetric().getMetric()} #${this.env!!.getIdentifier()}: ${log.getLog().getStatus()}"
   }
 }

@@ -14,6 +14,8 @@ class MonitorRepository {
   fun generateLogMessage(mon: MonitorData?) {
     val createMsg = MonitorMsg(mon)
     val msg = createMsg.generateLogMessage(createMsg.getLogList())
+    Log.d("log msg", msg)
+    // TODO: Post log message using the node server.
   }
 
   fun getData() {

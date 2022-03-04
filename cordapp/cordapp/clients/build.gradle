@@ -7,6 +7,9 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
+plugins {
+    id 'application'
+}
 
 apply plugin: 'java'
 apply plugin: 'kotlin'
@@ -32,4 +35,12 @@ dependencies {
 task runServer(type: JavaExec, dependsOn: assemble) {
     classpath = sourceSets.main.runtimeClasspath
     main = 'com.indieproject.cordapp.webserver.ServerKt'
+}
+
+jar {
+    // Keep jar clean:
+    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.MF'
+    manifest {
+        attributes 'Main-Class': 'com.indieproject.cordapp.webserver.ServerKt'
+    } from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }

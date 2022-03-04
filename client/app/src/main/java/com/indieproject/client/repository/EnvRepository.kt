@@ -13,6 +13,8 @@ class EnvRepository {
   fun generateLogMessage(env: EnvironmentData?) {
     val createMsg = EnvMsg(env)
     val msg = createMsg.generateLogMessage(createMsg.evalEnvironmentLog())
+    Log.d("log msg", msg)
+    // TODO: Post log message using the node server.
   }
 
    fun getData() {
