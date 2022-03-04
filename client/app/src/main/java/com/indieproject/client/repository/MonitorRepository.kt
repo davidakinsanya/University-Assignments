@@ -1,7 +1,7 @@
 package com.indieproject.client.repository
 
 import android.util.Log
-import com.indieproject.client.data.MonitorData
+import com.indieproject.client.data.iot.MonitorData
 import com.indieproject.client.msg.MonitorMsg
 import com.indieproject.client.requests.RetrofitInstance
 import retrofit2.Call
@@ -13,7 +13,9 @@ class MonitorRepository {
 
   fun generateLogMessage(mon: MonitorData?) {
     val createMsg = MonitorMsg(mon)
-    val msg = createMsg.generateLogMessage()
+    val msg = createMsg.generateLogMessage(createMsg.getLogList())
+    Log.d("log msg", msg)
+    // TODO: Post log message using the node server.
   }
 
   fun getData() {

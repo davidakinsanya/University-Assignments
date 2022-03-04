@@ -20,7 +20,6 @@ import java.util.concurrent.TimeUnit
 fun Application.mainModule() {
   val connection: CordaRPCConnection = connectToNode()
   install(CallLogging) { level = Level.INFO }
-  install(ContentNegotiation) { cordaJackson(connection.proxy) }
   routing { msgRouting(connection.proxy) }
   addShutdownEvent(connection)
 }

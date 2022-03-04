@@ -1,4 +1,4 @@
-package com.indieproject.client.data
+package com.indieproject.client.data.iot
 
 import com.indieproject.client.utils.StatusUtils
 

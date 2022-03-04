@@ -17,6 +17,8 @@ class MainActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       ClientTheme {
+        val repo = EnvRepository()
+        repo.getData()
         // A surface container using the 'background' color from the theme
         Surface(color = MaterialTheme.colors.background) {
           Greeting("Android")

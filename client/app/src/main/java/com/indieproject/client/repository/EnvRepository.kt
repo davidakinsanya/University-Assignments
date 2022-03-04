@@ -1,7 +1,7 @@
 package com.indieproject.client.repository
 
 import android.util.Log
-import com.indieproject.client.data.EnvironmentData
+import com.indieproject.client.data.iot.EnvironmentData
 import com.indieproject.client.msg.EnvMsg
 import com.indieproject.client.requests.RetrofitInstance
 import retrofit2.Call
@@ -12,7 +12,9 @@ class EnvRepository {
 
   fun generateLogMessage(env: EnvironmentData?) {
     val createMsg = EnvMsg(env)
-    val msg = createMsg.generateLogMessage()
+    val msg = createMsg.generateLogMessage(createMsg.evalEnvironmentLog())
+    Log.d("log msg", msg)
+    // TODO: Post log message using the node server.
   }
 
    fun getData() {
