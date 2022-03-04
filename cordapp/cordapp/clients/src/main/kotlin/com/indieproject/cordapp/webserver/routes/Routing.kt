@@ -23,7 +23,7 @@ fun Application.msgRouting(proxy: CordaRPCOps) {
       } catch (b: BaseApplicationResponse.ResponseAlreadySentException) {}
     }
     
-    get("/heath-check") {
+    get("/health-check") {
       try {
         println("Check successful!")
         call.respond("Check successful!")
