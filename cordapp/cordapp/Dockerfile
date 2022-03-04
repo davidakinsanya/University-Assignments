@@ -11,7 +11,7 @@ RUN dos2unix gradlew
 RUN bash gradlew jar
 
 WORKDIR /run
-RUN cp /src/build/libs/*.jar /run/server.jar
+RUN cp /src/clients/build/libs/*.jar /run/server.jar
 
 ## EXPOSE 8080
 
