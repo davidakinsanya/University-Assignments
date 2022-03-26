@@ -14,8 +14,7 @@ class MonitorRepository {
   fun generateLogMessage(mon: MonitorData?) {
     val createMsg = MonitorMsg(mon)
     val msg = createMsg.generateLogMessage(createMsg.getLogList())
-    Log.d("log msg", msg)
-    // TODO: Post log message using the node server.
+    pushLogMessage(msg)
   }
 
   fun getData() {
@@ -26,6 +25,18 @@ class MonitorRepository {
 
       override fun onFailure(call: Call<MonitorData?>, t: Throwable) {
         Log.d("Error", "GET REQUEST FAILED")
+      }
+    })
+  }
+
+  private fun pushLogMessage(newMsg: String) {
+    RetrofitInstance.monTwo.pushLogMessage(newMsg).enqueue(object : Callback<String?> {
+      override fun onResponse(call: Call<String?>, response: Response<String?>) {
+
+      }
+
+      override fun onFailure(call: Call<String?>, t: Throwable) {
+
       }
     })
   }

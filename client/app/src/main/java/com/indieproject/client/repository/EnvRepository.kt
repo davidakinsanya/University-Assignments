@@ -13,8 +13,7 @@ class EnvRepository {
   fun generateLogMessage(env: EnvironmentData?) {
     val createMsg = EnvMsg(env)
     val msg = createMsg.generateLogMessage(createMsg.evalEnvironmentLog())
-    Log.d("log msg", msg)
-    // TODO: Post log message using the node server.
+    pushLogMessage(msg)
   }
 
    fun getData() {
@@ -28,4 +27,16 @@ class EnvRepository {
        }
      })
    }
+
+  private fun pushLogMessage(newMsg: String) {
+   RetrofitInstance.envTwo.pushLogMessage(newMsg).enqueue(object : Callback<String?> {
+     override fun onResponse(call: Call<String?>, response: Response<String?>) {
+
+     }
+
+     override fun onFailure(call: Call<String?>, t: Throwable) {
+
+     }
+   })
+  }
 }

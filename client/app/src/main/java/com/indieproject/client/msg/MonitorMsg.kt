@@ -75,7 +75,7 @@ class MonitorMsg constructor(private val mon: MonitorData?) {
     return log
   }
 
-  fun evalTemperature(): MonitorLog {
+  private fun evalTemperature(): MonitorLog {
     val log: MonitorLog = when {
       mon!!.getTemperature() <= 36.6 -> {
         MonitorLog(MonitorMetrics.TEMPERATURE, MsgLog.SUB_OPTIMAL)
