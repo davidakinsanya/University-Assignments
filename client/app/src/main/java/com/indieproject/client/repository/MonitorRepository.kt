@@ -2,7 +2,9 @@ package com.indieproject.client.repository
 
 import android.util.Log
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ComposeCompilerApi
 import com.indieproject.client.`interface`.CardDemo
+import com.indieproject.client.`interface`.MonitorCard
 import com.indieproject.client.data.iot.MonitorData
 import com.indieproject.client.msg.MonitorMsg
 import com.indieproject.client.requests.RetrofitInstance
@@ -33,19 +35,19 @@ class MonitorRepository {
     return log
   }
 
-  private fun pushLogMessage(mon: MonitorData, newMsg: String): @Composable () -> Unit {
+  private fun pushLogMessage(mon: MonitorData, newMsg: String):@Composable () -> Unit {
     val demo: @Composable () -> Unit
     RetrofitInstance.monTwo.pushLogMessage(newMsg).enqueue(object : Callback<String?> {
       override fun onResponse(call: Call<String?>, response: Response<String?>) {
-
+        Log.d("success", "success")
       }
 
       override fun onFailure(call: Call<String?>, t: Throwable) {
 
       }
     })
-    return {
-      CardDemo(mon = mon, env = null, msg = newMsg)
+    return  {
+      MonitorCard(mon = mon, msg = newMsg)
     }
   }
 }

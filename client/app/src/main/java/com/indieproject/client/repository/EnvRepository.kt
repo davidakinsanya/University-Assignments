@@ -4,6 +4,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.compose.runtime.Composable
 import com.indieproject.client.`interface`.CardDemo
+import com.indieproject.client.`interface`.EnvCard
 import com.indieproject.client.data.iot.EnvironmentData
 import com.indieproject.client.msg.EnvMsg
 import com.indieproject.client.requests.RetrofitInstance
@@ -38,13 +39,14 @@ class EnvRepository {
     val demo: @Composable () -> Unit
    RetrofitInstance.envTwo.pushLogMessage(newMsg).enqueue(object : Callback<String?> {
      override fun onResponse(call: Call<String?>, response: Response<String?>) {
+      Log.d("success", "success")
      }
      override fun onFailure(call: Call<String?>, t: Throwable) {
 
      }
    })
   return {
-    CardDemo(mon = null, env = env, msg = newMsg)
+    EnvCard(env = env, msg = newMsg)
   }
   }
 }
