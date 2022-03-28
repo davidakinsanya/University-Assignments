@@ -1,4 +1,4 @@
-package com.indieproject.client.`interface`
+package com.indieproject.client.view
 
 
 import androidx.compose.foundation.clickable
@@ -38,7 +38,7 @@ fun CardDemo(mon: MonitorData?, env: EnvironmentData?, msg: String) {
 }
 
 @Composable
-fun EnvCard(env: EnvironmentData, msg: String) {
+fun EnvCard(env: EnvironmentData?, msg: String) {
   Card(
     modifier = Modifier
       .fillMaxWidth()
@@ -51,7 +51,7 @@ fun EnvCard(env: EnvironmentData, msg: String) {
     ) {
       Column (Modifier.padding(10.dp)) {
         Text("Hello")
-        //Text("ENV: " + env.getEnvironment() + " ID: " + env.getIdentifier())
+        Text("ENV: " + env!!.getEnvironment() + " ID: " + env.getIdentifier())
       }
       Spacer(Modifier.padding(start=100.dp))
       Column (Modifier.padding(10.dp)) {
@@ -63,26 +63,26 @@ fun EnvCard(env: EnvironmentData, msg: String) {
 
 
 @Composable
-fun MonitorCard(mon: MonitorData, msg: String) {
-  Card(
-    modifier = Modifier
-      .fillMaxWidth()
-      .padding(15.dp)
-      .clickable {},
-    elevation = 10.dp
-  ) {
-    Row(
-      modifier = Modifier.padding(10.dp)
+fun MonitorCard(mon: MonitorData?, msg: String) {
+    Card(
+      modifier = Modifier
+        .fillMaxWidth()
+        .padding(15.dp)
+        .clickable {},
+      elevation = 10.dp
     ) {
-      Column(Modifier.padding(10.dp)) {
-        //Text("MON ID: " + mon.getMonitorNumber())
-      }
-      Spacer(Modifier.padding(start = 100.dp))
-      Column(Modifier.padding(10.dp)) {
-        Text(text = "View log")
+      Row(
+        modifier = Modifier.padding(10.dp)
+      ) {
+        Column(Modifier.padding(10.dp)) {
+          // Text("MON ID: " + mon.getMonitorNumber())
+        }
+        Spacer(Modifier.padding(start = 120.dp))
+        Column(Modifier.padding(10.dp)) {
+          Text(text = "View log")
 
-        //TODO: Get some images for the UI.
+          //TODO: Get some images for the UI.
+        }
       }
     }
-  }
 }

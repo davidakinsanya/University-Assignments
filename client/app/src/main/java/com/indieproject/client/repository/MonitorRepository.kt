@@ -1,53 +1,44 @@
 package com.indieproject.client.repository
 
 import android.util.Log
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ComposeCompilerApi
-import com.indieproject.client.`interface`.CardDemo
-import com.indieproject.client.`interface`.MonitorCard
 import com.indieproject.client.data.iot.MonitorData
 import com.indieproject.client.msg.MonitorMsg
 import com.indieproject.client.requests.RetrofitInstance
+import com.indieproject.client.view.MonitorDisplayObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
-class MonitorRepository {
+class MonitorRepository() {
 
-  fun generateLogMessage(mon: MonitorData?): @Composable () -> Unit {
+  fun generateLogMessage(mon: MonitorData?) {
     val createMsg = MonitorMsg(mon)
     val msg = createMsg.generateLogMessage(createMsg.getLogList())
-    return pushLogMessage(mon!!,msg)
+    pushLogMessage(mon!!,msg)
   }
 
-  fun getDisplayLog(): @Composable () -> Unit {
-    var log: @Composable () -> Unit = {}
+  fun getDisplayLog() {
     RetrofitInstance.mon.getData().enqueue(object : Callback<MonitorData?> {
       override fun onResponse(call: Call<MonitorData?>, response: Response<MonitorData?>) {
-        log = generateLogMessage(response.body())
+        generateLogMessage(response.body())
       }
 
       override fun onFailure(call: Call<MonitorData?>, t: Throwable) {
         Log.d("Error", "GET REQUEST FAILED")
       }
     })
-    return log
   }
 
-  private fun pushLogMessage(mon: MonitorData, newMsg: String):@Composable () -> Unit {
-    val demo: @Composable () -> Unit
+  private fun pushLogMessage(mon: MonitorData, newMsg: String) {
     RetrofitInstance.monTwo.pushLogMessage(newMsg).enqueue(object : Callback<String?> {
       override fun onResponse(call: Call<String?>, response: Response<String?>) {
         Log.d("success", "success")
       }
 
       override fun onFailure(call: Call<String?>, t: Throwable) {
-
+        Log.d("Error", "POST REQUEST FAILED")
       }
     })
-    return  {
-      MonitorCard(mon = mon, msg = newMsg)
-    }
   }
 }
