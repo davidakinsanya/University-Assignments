@@ -38,6 +38,8 @@ class MainActivity : ComponentActivity() {
               .background(color = Color.LightGray, shape = RoundedCornerShape(50.dp))) {
                         val env = EnvRepository()
                         val mon = MonitorRepository()
+
+                        mon.getDisplayLog()
                         Column(
                           Modifier
                             .fillMaxHeight(1.0f)

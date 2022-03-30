@@ -51,7 +51,7 @@ fun EnvCard(env: EnvironmentData?, msg: String) {
     ) {
       Column (Modifier.padding(10.dp)) {
         Text("Hello")
-        Text("ENV: " + env!!.getEnvironment() + " ID: " + env.getIdentifier())
+        // Text("ENV: " + env!!.getEnvironment() + " ID: " + env.getIdentifier())
       }
       Spacer(Modifier.padding(start=100.dp))
       Column (Modifier.padding(10.dp)) {
