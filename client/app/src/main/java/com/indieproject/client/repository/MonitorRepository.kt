@@ -1,12 +1,11 @@
 package com.indieproject.client.repository
 
 import android.util.Log
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
 import com.indieproject.client.data.iot.MonitorData
+import com.indieproject.client.db.CardModel
+import com.indieproject.client.db.DbHelper
 import com.indieproject.client.msg.MonitorMsg
 import com.indieproject.client.requests.RetrofitInstance
-import com.indieproject.client.view.MonitorDisplayObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,17 +13,16 @@ import retrofit2.Response
 
 class MonitorRepository() {
 
-  fun generateLogMessage(mon: MonitorData?) {
+  fun generateLogMessage(mon: MonitorData?, db: DbHelper) {
     val createMsg = MonitorMsg(mon)
     val msg = createMsg.generateLogMessage(createMsg.getLogList())
-    pushLogMessage(mon!!,msg)
+    pushLogMessage(mon!!, db, msg, createMsg.getDangerStatus())
   }
 
-  fun getDisplayLog() {
-
+  fun logData(db: DbHelper) {
     RetrofitInstance.mon.getData().enqueue(object : Callback<MonitorData?> {
       override fun onResponse(call: Call<MonitorData?>, response: Response<MonitorData?>) {
-        generateLogMessage(response.body())
+        generateLogMessage(response.body(), db)
       }
 
       override fun onFailure(call: Call<MonitorData?>, t: Throwable) {
@@ -33,10 +31,10 @@ class MonitorRepository() {
     })
   }
 
-  private fun pushLogMessage(mon: MonitorData, newMsg: String) {
+  private fun pushLogMessage(mon: MonitorData, db: DbHelper, newMsg: String, danger: Boolean) {
     RetrofitInstance.monTwo.pushLogMessage(newMsg).enqueue(object : Callback<String?> {
       override fun onResponse(call: Call<String?>, response: Response<String?>) {
-        // Log.d("success", "success")
+        db.addCard(CardModel().createCard(mon.getMonitorNumber(), "MON", newMsg, danger))
       }
 
       override fun onFailure(call: Call<String?>, t: Throwable) {

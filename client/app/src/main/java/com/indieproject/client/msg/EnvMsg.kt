@@ -7,9 +7,18 @@ import com.indieproject.client.data.logs.EnvMetric
 import com.indieproject.client.data.logs.EnvironmentLog
 import com.indieproject.client.data.logs.MsgLog
 
+/**
+ * This class interprets EnvironmentData objects to produce log messages.
+ *
+ * @param env An EnvironmentData object.
+ *
+ * @author david
+ */
 
 class EnvMsg constructor(private val env: EnvironmentData?) {
-
+  /**
+   * This function is tasked with translating Environment enums to EnvMetric enums.
+   */
   private fun evalType(): EnvMetric {
     return when(this.env!!.getEnvironment()) {
       Environment.PHARMACEUTICAL_STORAGE -> EnvMetric.PHARMACEUTICAL_STORAGE
@@ -19,6 +28,11 @@ class EnvMsg constructor(private val env: EnvironmentData?) {
     }
   }
 
+  /**
+   * This function is tasked with evaluating the EnvironmentData object to produce a MsgLog object.
+   *
+   * @return a MsgLog object, indicating the rating of the individual metric.
+   */
   private fun evalLog(): MsgLog {
     val log: MsgLog = if (this.env!!.getStatus() == Status.SUB_OPTIMAL) {
       MsgLog.SUB_OPTIMAL
@@ -35,10 +49,20 @@ class EnvMsg constructor(private val env: EnvironmentData?) {
     return log
   }
 
+  /**
+   * This function is tasked with generating an EnvironmentLog object from the prior methods.
+   *
+   * @return an EnvironmentLog object, combining the metric and its rating.
+   */
   fun evalEnvironmentLog(): EnvironmentLog {
     return EnvironmentLog(evalType(), evalLog())
   }
 
+  /**
+   * This function generates a log message from an EnvironmentLog object.
+   *
+   * @return a string representation of the log message.
+   */
   fun generateLogMessage(log: EnvironmentLog): String {
     return "${log.getEnvMetric().getMetric()} #${this.env!!.getIdentifier()}: ${log.getLog().getStatus()}"
   }

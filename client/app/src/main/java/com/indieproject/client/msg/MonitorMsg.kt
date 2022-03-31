@@ -2,94 +2,146 @@ package com.indieproject.client.msg
 
 import com.indieproject.client.data.iot.MonitorData
 import com.indieproject.client.data.logs.MonitorLog
-import com.indieproject.client.data.logs.MonitorMetrics
+import com.indieproject.client.data.logs.MonitorMetric
 import com.indieproject.client.data.logs.MsgLog
 
-// TODO: create multiple Enum classes to assist in
-//  deciphering what each data point means
-//  as it pertains to the patients health.
-
-
+/**
+ * This class interprets MonitorData objects to produce log messages
+ * and detect 'danger' amongst given logs.
+ *
+ * @param mon a MonitorData object.
+ *
+ * @author david
+ */
 class MonitorMsg constructor(private val mon: MonitorData?) {
+  private var danger_count = 0
+  private var danger_status: Boolean = false
 
+  /**
+   * This function is tasked with evaluating the pulse reading
+   * of the MonitorData object to produce a MonitorLog object.
+   *
+   * @return a MonitorLog object, combining the monitor reading as well as its rating.
+   */
   private fun evalPulse(): MonitorLog {
     val log: MonitorLog;
     when {
       mon!!.getPulse() <= 95 -> {
-        log = MonitorLog(MonitorMetrics.PULSE, MsgLog.SUB_OPTIMAL)
+        log = MonitorLog(MonitorMetric.PULSE, MsgLog.SUB_OPTIMAL)
+        danger_count++
       }
       mon.getPulse() in 75..85 -> {
-        log = MonitorLog(MonitorMetrics.PULSE, MsgLog.STANDARD)
+        log = MonitorLog(MonitorMetric.PULSE, MsgLog.STANDARD)
       }
       else -> {
-        log = MonitorLog(MonitorMetrics.PULSE, MsgLog.OPTIMAL)
+        log = MonitorLog(MonitorMetric.PULSE, MsgLog.OPTIMAL)
       }
     }
     return log
   }
 
+  /**
+   * This function is tasked with evaluating the blood pressure
+   * of the MonitorData object to produce a MonitorLog object.
+   *
+   * @return a MonitorLog object, combining the monitor reading as well as its rating.
+   */
   private fun evalBloodPressure(): MonitorLog {
-    val log: MonitorLog = when {
+    val log: MonitorLog;
+
+    when {
       mon!!.getBloodPressure()[0] <= 115 && mon.getBloodPressure()[1] <= 85 -> {
-        MonitorLog(MonitorMetrics.BP, MsgLog.SUB_OPTIMAL)
+        log = MonitorLog(MonitorMetric.BP, MsgLog.SUB_OPTIMAL)
+        danger_count++
       }
       mon.getBloodPressure()[0] in 110..114 &&  mon.getBloodPressure()[1] in 80..84 -> {
-        MonitorLog(MonitorMetrics.BP, MsgLog.STANDARD)
+        log = MonitorLog(MonitorMetric.BP, MsgLog.STANDARD)
       }
       else -> {
-        MonitorLog(MonitorMetrics.BP, MsgLog.OPTIMAL)
+        log = MonitorLog(MonitorMetric.BP, MsgLog.OPTIMAL)
       }
     }
 
     return log
   }
 
+  /**
+   * This function is tasked with evaluating the oxygen saturation
+   * of the MonitorData object to produce a MonitorLog object.
+   *
+   * @return a MonitorLog object, combining the monitor reading as well as its rating.
+   */
   private fun evalOxygenSaturation(): MonitorLog {
-    val log: MonitorLog = when {
+    val log: MonitorLog;
+
+    when {
       mon!!.getOxygenSaturation() <= 95 -> {
-        MonitorLog(MonitorMetrics.OS, MsgLog.SUB_OPTIMAL)
+        log = MonitorLog(MonitorMetric.OS, MsgLog.SUB_OPTIMAL)
+        danger_count++
       }
       mon.getOxygenSaturation() in 87..94 -> {
-        MonitorLog(MonitorMetrics.OS, MsgLog.STANDARD)
+        log = MonitorLog(MonitorMetric.OS, MsgLog.STANDARD)
       }
       else -> {
-        MonitorLog(MonitorMetrics.OS, MsgLog.OPTIMAL)
+        log = MonitorLog(MonitorMetric.OS, MsgLog.OPTIMAL)
       }
     }
 
     return log
   }
 
+  /**
+   * This function is tasked with evaluating the respiration rate reading
+   * of the MonitorData object to produce a MonitorLog object.
+   *
+   * @return a MonitorLog object, combining the monitor reading as well as its rating.
+   */
   private fun evalRespiration(): MonitorLog {
-    val log: MonitorLog = when {
+    val log: MonitorLog;
+    when {
       mon!!.getRespiration() <= 13 -> {
-        MonitorLog(MonitorMetrics.RESPIRATION, MsgLog.SUB_OPTIMAL)
+        log = MonitorLog(MonitorMetric.RESPIRATION, MsgLog.SUB_OPTIMAL)
+        danger_count++
       }
       mon.getRespiration() in 14..17 -> {
-        MonitorLog(MonitorMetrics.RESPIRATION, MsgLog.STANDARD)
+        log = MonitorLog(MonitorMetric.RESPIRATION, MsgLog.STANDARD)
       }
       else -> {
-        MonitorLog(MonitorMetrics.RESPIRATION, MsgLog.OPTIMAL)
+        log = MonitorLog(MonitorMetric.RESPIRATION, MsgLog.OPTIMAL)
       }
     }
     return log
   }
 
+  /**
+   * This function is tasked with evaluating the temperature
+   * of the MonitorData object to produce a MonitorLog object.
+   *
+   * @return a MonitorLog object, combining the monitor reading as well as its rating.
+   */
   private fun evalTemperature(): MonitorLog {
-    val log: MonitorLog = when {
+    val log: MonitorLog;
+    when {
       mon!!.getTemperature() <= 36.6 -> {
-        MonitorLog(MonitorMetrics.TEMPERATURE, MsgLog.SUB_OPTIMAL)
+        log = MonitorLog(MonitorMetric.TEMPERATURE, MsgLog.SUB_OPTIMAL)
+        danger_count++
       }
+
       mon.getTemperature() in 36.61..37.1 -> {
-        MonitorLog(MonitorMetrics.TEMPERATURE, MsgLog.STANDARD)
+        log = MonitorLog(MonitorMetric.TEMPERATURE, MsgLog.STANDARD)
       }
       else -> {
-        MonitorLog(MonitorMetrics.TEMPERATURE, MsgLog.OPTIMAL)
+        log = MonitorLog(MonitorMetric.TEMPERATURE, MsgLog.OPTIMAL)
       }
     }
     return log
   }
-
+  /**
+   * This function is tasked with generating a list of MonitorLog objects from the prior methods.
+   *
+   * @return a list of MonitorLog objects, combining the all the metric and
+   *         their respective ratings.
+   */
    fun getLogList(): List<MonitorLog> {
     return listOf(evalPulse(), evalBloodPressure(),
       evalOxygenSaturation(), evalRespiration(),
@@ -97,11 +149,29 @@ class MonitorMsg constructor(private val mon: MonitorData?) {
     )
   }
 
+
+  /**
+   * This function generates a log message from a list of MonitorLog objects.
+   *
+   * @return a string representation of the log message.
+   */
   fun generateLogMessage(logList: List<MonitorLog>): String {
-    var msg: String = "MONITOR #${mon!!.getMonitorNumber()}: "
+    var msg: String = "MONITOR #${mon!!.getMonitorNumber()}:"
     for (item in logList) {
-      msg += "  ${item.getMetric()}: ${item.getLog().getStatus()}"
+      msg += " ${item.getMetric()}: ${item.getLog().getStatus()}"
     }
+
+    if (danger_count >= 3) { danger_status = true }
     return msg
+  }
+
+  /**
+   * A function revealing whether or the MonitorData object
+   * is poses potential danger to the patient.
+   *
+   * @return the boolean indicating danger within the object.
+   */
+  fun getDangerStatus(): Boolean {
+    return danger_status
   }
 }

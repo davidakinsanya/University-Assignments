@@ -1,15 +1,17 @@
 package com.indieproject.client.data.logs
 
 /**
- * This class models all the medical environments as enum constants.
+ * This class models all the hospital monitor readings as enum constants.
  *
  * @param metric A string representation of each enum.
  *
  * @author David
  */
-enum class EnvMetric(private val metric: String) {
-  PHARMACEUTICAL_STORAGE("PHARMACEUTICAL STORAGE"), PATIENT_WARD("PATIENT WARD"),
-  INCUBATOR("INCUBATOR"), LAVATORY("LAVATORY");
+
+enum class MonitorMetric(private val metric: String) {
+  PULSE("PULSE"), BP("BLOOD PRESSURE"),
+  OS("OXYGEN SATURATION"), RESPIRATION("RESPIRATION"),
+  TEMPERATURE("TEMPERATURE");
 
   /**
    * This function is tasked with retrieving the string representation of the given enum.

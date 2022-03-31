@@ -5,7 +5,7 @@ package com.indieproject.client.data.iot
  * This class models the conditions of specific hospital environments.
  *
  *
- * @param environment An EnvMetric object.
+ * @param environment An Environment object.
  * @param identifier An arbitrary integer identifying the environment object.
  * @param status A Status object.
  * @author David
