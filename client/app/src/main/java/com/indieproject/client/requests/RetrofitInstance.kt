@@ -3,6 +3,11 @@ package com.indieproject.client.requests
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * This object instantiates a Retrofit Instances for performing HTTP requests.
+ *
+ * @author david
+ */
 object RetrofitInstance {
 
   private const val base_url = "https://iot-simulator-iksj4.ondigitalocean.app"

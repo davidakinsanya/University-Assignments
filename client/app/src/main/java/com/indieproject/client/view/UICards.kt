@@ -19,6 +19,15 @@ import com.indieproject.client.data.iot.EnvironmentData
 import com.indieproject.client.data.iot.MonitorData
 import com.indieproject.client.db.CardModel
 
+/**
+ * This function forms a UI Card to help the user see a snippet
+ * of the log message interpreted by the system.
+ *
+ * @param card a CardModel object.
+ * @param context the context of which to display the UI Card.
+ *
+ * @author david
+ */
 @Composable
 fun LogCard(card: CardModel, context: Context) {
     Card(

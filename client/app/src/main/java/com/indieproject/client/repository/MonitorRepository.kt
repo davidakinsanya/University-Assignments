@@ -51,7 +51,7 @@ class MonitorRepository() {
    * and adds it to the local database.
    *
    * @param mon a MonitorData object.
-   * @param db a DbHelper Object.
+   * @param db a DbHelper object.
    * @param newMsg the log message produced.
    * @param danger a boolean value indicating if the patient could be in danger.
    */
