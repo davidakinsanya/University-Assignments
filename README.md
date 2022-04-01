@@ -39,3 +39,6 @@ docker ps // good for checking status of the nodes
 docker stop // terminates all nodes instantly
 ```
 Useful note: The default user name and passwords of all nodes in build.gradle NOT production ready!
+
+## Demo link
+https://youtu.be/Y7O3KplHaiY
