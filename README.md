@@ -23,10 +23,10 @@ An up-to-date version of docker is essential for running applications locally.
 
 ## Useful commands
 
-(in iot-simulator project)
+(in iot-simulator and cordapp project)
 
 ```
-docker build -t iot-simulator // build the simulator project in docker
+docker build -t iot-simulator // build the simulator project in docker, same command works for cordapp rpc client
 docker run --name iot-simulator -p 8080:8080 iot-simulator // run the project in docker
 docker stop iot-simulator // stop the project in docker
 ```
