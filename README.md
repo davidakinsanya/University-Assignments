@@ -1,4 +1,4 @@
-## Log Auding and Blockhain System for IY3821 Individual Project In Information Security
+## Log Auditing and Blockhain System for IY3821 Individual Project In Information Security
 
 This project involves retrieving data relating to monitor readings of hospital patients
 and medical environments, parsing this data on the client side and sending this data
