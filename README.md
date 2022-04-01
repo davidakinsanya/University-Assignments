@@ -32,7 +32,7 @@ docker stop iot-simulator // stop the project in docker
 ```
 
 (in cordapp project)
-````
+```
 gradlew clean deployDockerNodes // build the network of nodes
 docker-compose up // launch nodes in docker from the same location
 docker ps // good for checking status of the nodes
