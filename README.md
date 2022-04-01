@@ -37,6 +37,11 @@ gradlew clean deployDockerNodes // build the network of nodes
 docker-compose up // launch nodes in docker from the same location
 docker ps // good for checking status of the nodes
 docker stop // terminates all nodes instantly
+
+
+ocker build -t cordapp // build the rpc client in docker
+docker run --name cordapp -p 8080:8080 iot-simulator // run the client in docker
+docker stop cordapp // stop the client in docker
 ```
 Useful note: The default user name and passwords of all nodes in build.gradle NOT production ready!
 
