@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# digital-ocean-server
+=======
 ## Log Auditing and Blockhain System for IY3821 Individual Project In Information Security
 
 This project involves retrieving data relating to monitor readings of hospital patients
@@ -47,3 +50,4 @@ Useful note: The default user name and passwords of all nodes in build.gradle NO
 
 ## Demo link
 https://youtu.be/Y7O3KplHaiY
+>>>>>>> 3a10dffa938a08b935a6cde0d3296bf03340f3a7
