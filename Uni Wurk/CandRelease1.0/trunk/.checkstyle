@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fileset-config file-format-version="1.2.0" simple-config="false" sync-formatter="false">
+  <local-check-config name="maven-checkstyle-plugin validate" location="file:/C:/Users/david/eclipse-workspace/calculator/src/main/resources/googlePlus.xml" type="remote" description="maven-checkstyle-plugin configuration validate">
+    <property name="checkstyle.header.file" value="C:\Users\david\eclipse-workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\calculator\com.basistech.m2e.code.quality.checkstyleConfigurator\checkstyle-header-validate.txt"/>
+    <property name="checkstyle.cache.file" value="${project_loc}/target/checkstyle-cachefile"/>
+  </local-check-config>
+  <local-check-config name="googlePlus" location="C:\Users\david\eclipse-workspace\calculator\src\main\resources\googlePlus.xml" type="external" description="Google coding standards
+">
+    <additional-data name="protect-config-file" value="false"/>
+  </local-check-config>
+  <fileset name="all" enabled="true" check-config-name="maven-checkstyle-plugin validate" local="true">
+    <file-match-pattern match-pattern="." include-pattern="true"/>
+  </fileset>
+  <fileset name="googlePlus" enabled="true" check-config-name="googlePlus" local="false">
+    <file-match-pattern match-pattern=".java$" include-pattern="true"/>
+  </fileset>
+</fileset-config>

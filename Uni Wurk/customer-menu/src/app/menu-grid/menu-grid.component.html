@@ -1,0 +1,37 @@
+<head>
+    <link rel = "stylesheet" href = "menu-grid.component.sass">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    </head>
+<div class = "main">
+    <h1 class = "welcome"><u>Menu</u></h1>
+    <div class = "row">
+        <div class = "category">
+            <input (click) = "getStarters()" type="submit"  value= "Starters" class = "category-btn">
+            <input (click) = "getDrinks()" type="submit"  value= "Drinks" class = "category-btn">
+            <input (click) = "getMain()" type="submit"  value= "Main" class = "category-btn">
+            <input (click) = "getSides()" type="submit"  value= "Sides" class ="category-btn">
+            <input (click) = "getDessert()" type="submit"  value= "Dessert" class = "category-btn">
+        </div>
+    </div>
+
+    <div class = "col-md-9-12">
+        <div class = "cart-container">
+            <div class = "main-cart">
+            <div class = "cart" >
+                <section class="content" *ngIf="html" [innerHTML]="html"></section>
+            </div>
+            <input type="submit"  value= "Confirm Order" class = "submit-cart">
+            </div>
+        </div>
+    </div>
+    <div class = "col-md-1-9">
+        <div class="grid-container">
+            <div *ngFor = "let order of orders"  class="grid-item">  
+                <h1 class = "food-name" name = "meal">{{order.meal}}</h1> 
+                <p class = "price" name = "price">Price: £{{order.price}}</p>
+                <input (click) = "addToCart(order)" type="submit"  value= "Order" class = "submit">
+                <input (click) = "showInfo(order)" type="submit"  value= "Order" class = "info"  value= "info">
+            </div>
+        </div>
+    </div>
+</div>

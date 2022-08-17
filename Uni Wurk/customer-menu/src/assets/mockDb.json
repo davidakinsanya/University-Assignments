@@ -1,0 +1,151 @@
+{
+    "sides": [
+        {
+          "id": 1,
+          "meal": "Baked Beans",
+          "price": 2.95,
+          "selected": false
+        },
+        {
+          "id": 2,
+          "meal": "Chips",
+          "price": 3.95,
+          "selected": false
+        },
+        {
+          "id": 1,
+          "meal": "Rice",
+          "price": 4.95,
+          "selected": false
+        },
+        {
+          "id": 2,
+          "meal": "Roast Potatoes",
+          "price": 4.95,
+          "selected": false
+        },
+        {
+          "id": 1,
+          "meal": "Asparagus",
+          "price": 5.95,
+          "selected": false
+        },
+        {
+          "id": 2,
+          "meal": "Salsa",
+          "price": 2.95,
+          "selected": false
+        },
+        {
+          "id": 1,
+          "meal": "Salad",
+          "price": 4.95,
+          "selected": false
+        },
+        {
+          "id": 2,
+          "meal": "Guacamole",
+          "price": 8.95,
+          "selected": false
+        },
+        {
+          "id": 1,
+          "meal": "Bean Soup",
+          "price": 6.95,
+          "selected": false
+        }
+      ],
+
+    "orders": [
+      {
+        "id": 1,
+        "meal": "Burritos",
+        "price": 8.95,
+        "selected": false
+      },
+      {
+        "id": 2,
+        "meal": "Tacos",
+        "price": 9.95,
+        "selected": false
+      },
+      {
+        "id": 1,
+        "meal": "Nachos",
+        "price": 4.95,
+        "selected": false
+      },
+      {
+        "id": 2,
+        "meal": "Fajitas",
+        "price": 14.95,
+        "selected": false
+      },
+      {
+        "id": 1,
+        "meal": "BBQ Chicken",
+        "price": 3.95,
+        "selected": false
+      },
+      {
+        "id": 2,
+        "meal": "Chilaquiles",
+        "price": 10.95,
+        "selected": false
+      },
+      {
+        "id": 1,
+        "meal": "Mexican Tamales",
+        "price": 9.95,
+        "selected": false
+      },
+      {
+        "id": 2,
+        "meal": "Tortillas",
+        "price": 8.95,
+        "selected": false
+      },
+      {
+        "id": 1,
+        "meal": "Enchiladas",
+        "price": 12.95,
+        "selected": false
+      }
+    ],
+
+    
+  "tables": [
+    {
+      "id": 1,
+      "number": 5,
+      "hasOrder": true
+    },
+    {
+      "id": 2,
+      "number": 6,
+      "hasOrder": false
+    },
+    {
+      "id": 3,
+      "number": 7,
+      "hasOrder": false
+    },
+    {
+      "id": 4,
+      "number": 8,
+      "hasOrder": false
+    },
+    {
+      "id": 5,
+      "number": 12,
+      "hasOrder": true
+    }
+  ],
+  "Login": [
+      {
+        "username": "davidakinsanya",
+        "password": "cs2910",
+        "staff": "Boss"
+      }
+  ]
+}
